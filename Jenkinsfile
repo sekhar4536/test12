@@ -12,7 +12,7 @@ node{
 
       def mvnHome =  tool name: 'Maven3.54', type: 'maven'   
 
-      bat "${mvnHome}\\bin\\mvn package"
+      bat "${mvnHome}\\bin\\mvn clean"
 
    }
 
