@@ -5,20 +5,20 @@ node{
      git 'https://github.com/sekhar4536/test12.git'
 
    }
-
-   stage('Compile-Package'){
-
+   stage('Core Build'){
+   //stage('Compile-Package'){
+echo"Core build"
       // Get maven home path
 
-      def mvnHome =  tool 'Maven3.54'   
+      //def mvnHome =  tool 'Maven3.54'   
 
-      bat "${mvnHome}\\bin"
-      bat "mvn clean"
+      //bat "${mvnHome}\\bin"
+      //bat "mvn clean"
 
    }
-
-   stage('Email Notification'){
-
+   stage('Db Build'){
+   //stage('Email Notification'){
+echo"DB Build"
 //      mail bcc: '', body: '''Hi Welcome to jenkins email alerts
 
   //    Thanks
@@ -26,9 +26,9 @@ node{
     //  Hari''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'hari.kammana@gmail.com'
 
    }
-
-   stage('Slack Notification'){
-
+   stage('DOC Build'){
+   //stage('Slack Notification'){
+echo"DOC Build"
    //    slackSend baseUrl: 'https://hooks.slack.com/services/',
 
      //  channel: '#jenkins-pipeline-demo',
@@ -41,6 +41,15 @@ node{
 
        //tokenCredentialId: 'slack-demo'
 
+   }
+   stage('Junit Build'){
+         echo"Junit build"
+         }
+   stage('SONAR Build'){
+      echo "Sonar build"
+   }
+   stage('Package Build'){
+      echo"package build"
    }
 
 }
