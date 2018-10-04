@@ -10,7 +10,7 @@ node{
 
       // Get maven home path
 
-      def mvnHome =  tool name: 'Maven3.54', type: 'maven'   
+      def mvnHome =  tool 'Maven3.54'   
 
       bat "${mvnHome}\\bin"
       bat "mvn clean"
