@@ -16,7 +16,7 @@ node {
 		}
 		stage('Deploy to tomcat'){
 			sshagent(['tomcat']) {
-   			sh 'sudo scp -o StrictHostKeyChecking=no target/*.war ec2-user@13.209.22.132:/opt/tomcat7/webapps'
+   			sh 'sudo cp -r /var/lib/jenkins/workspace/Pipeline1/target/test12.war /opt/tomcat7/webapps'
 			}
 		}
 	}
