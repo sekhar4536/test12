@@ -15,8 +15,7 @@ node {
 		sh "${mvnHome}/bin/mvn package"
 		}
 		stage('Deploy to tomcat'){
-			sshagent(['tomcat']) {
    			sh 'sudo cp -r /var/lib/jenkins/workspace/Pipeline1/target/test12.war /opt/tomcat7/webapps'
-			}
+			
 		}
 	}
