@@ -15,7 +15,8 @@ node {
 		sh "${mvnHome}/bin/mvn package"
 		}
 		stage('Deploy to tomcat'){
-   			sh 'sudo cp -r /var/lib/jenkins/workspace/Pipeline1/target/test12.war /opt/tomcat7/webapps'
-			
+   		sshagent(['tomcat']) {
+ 		  sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@52.78.193.12:/opt/tomcat7/webapps'
+			}
 		}
 	}
