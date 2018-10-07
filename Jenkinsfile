@@ -14,7 +14,9 @@ node {
 		def mvnHome = tool name: 'maven3.5.4', type: 'maven'
 		sh "${mvnHome}/bin/mvn package"
 		}
-		stage('email'){
-        	echo"HI"		
+		stage('Deploy to tomcat'){
+			sshagent(['tomcat']) {
+   			sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.30.52:/opt/tomcat7/webapps'
+			}
 		}
 	}
