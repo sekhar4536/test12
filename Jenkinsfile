@@ -14,8 +14,8 @@ node {
 		def mvnHome = tool name: 'maven3.5.4', type: 'maven'
 		sh "${mvnHome}/bin/mvn package"
 		}
-		sshagent(credentials: ['ec2user']) {
-			sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@52.78.193.12:/opt/tomcat7/webapps'
+		sshagent(credentials: ['tomcat-dev']) {
+			sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.38.235: /opt/tomcat7/webapps'
 		}
 
 }
