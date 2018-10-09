@@ -1,6 +1,6 @@
 
-FROM tomcat:7
+FROM tomcat
 
 # Take the war and copy to webapps of tomcat
 
-COPY target/*.war /opt/tomcat7/webapps
+COPY target/*.war /usr/local/tomcat/webapps/
